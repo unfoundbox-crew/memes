@@ -1,6 +1,0 @@
-# worldtrainer.xyz - The Agent Chaos Gym
-
-> Pokémon for AI Coding Agents. Stress-test your models against chaotic edge-case simulations, network timeouts, and corrupted ASTs.
-
-## Overview
-Governed by Unfoundbox Crew. 100% offline local forensics integration via npx agentworth.
