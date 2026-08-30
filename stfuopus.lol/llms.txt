@@ -1,0 +1,23 @@
+# stfuopus.lol - The $75/M Token Apology Tax Engine
+
+> Your AI spent $75/MTok to apologize for a typo. We calculated your receipts. Local-first token audit, apology cost calculator, and WebMCP telemetry.
+
+## Overview
+stfuopus.lol is an open-source, local-first developer utility and satirical benchmark created by Unfoundbox Crew.
+It quantifies token waste, latency attribution, and model groveling across AI coding assistants.
+
+## WebMCP Tools (navigator.modelContext)
+This site exposes in-browser WebMCP tools via the Web Model Context Protocol standard:
+- `grovel_calculator`: Executable in-browser via `navigator.modelContext.executeTool("grovel_calculator")`
+- `agentworth_local_audit`: Executable in-browser via `navigator.modelContext.executeTool("agentworth_local_audit")`
+
+## Sister Projects
+- https://stfuopus.lol : Claude Opus Apology Tax Calculator
+- https://actuallyopenai.lol : OpenAI o3 Deliberation Profiler
+- https://antiantigravity.lol : Google Antigravity 19-Crate Satire
+- https://agentworth.dev : Local-First AI Trajectory Forensics Engine (npx agentworth)
+
+## Technology
+- 100% Client-Side Vanilla HTML/CSS/JS (<100ms Global Edge TTFB)
+- WebMCP Standard (`navigator.modelContext`)
+- 100% Offline Local Forensics Companion (`npx agentworth usage --pacing`)
