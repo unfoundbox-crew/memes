@@ -860,8 +860,12 @@
     }
 
     function calculateTax() {
-      const apologies = parseInt(document.getElementById('apologyInput').value) || 1;
-      const context = parseInt(document.getElementById('contextInput').value) || 10000;
+      const apEl = document.getElementById('apologyInput');
+      const ctxEl = document.getElementById('contextInput');
+      if (!apEl || !ctxEl) return;
+
+      const apologies = parseInt(apEl.value) || 1;
+      const context = parseInt(ctxEl.value) || 10000;
       
       const turns = Math.round(apologies * 2.3);
       const words = apologies * 90;
@@ -871,24 +875,31 @@
       const costCache = (apologies * context * 1.50) / 1000000;
       const totalTax = costOversight + costCorrect + costCache;
 
-      document.getElementById('receiptTurns').innerText = turns + " turns";
-      document.getElementById('receiptApologies').innerText = apologies + " grovels";
-      document.getElementById('receiptWords').innerText = words.toLocaleString() + " words";
-      document.getElementById('costOversight').innerText = "$" + costOversight.toFixed(2);
-      document.getElementById('costCorrect').innerText = "$" + costCorrect.toFixed(2);
-      document.getElementById('costCache').innerText = "$" + costCache.toFixed(2);
-      document.getElementById('receiptTotal').innerText = "$" + totalTax.toFixed(2) + " USD";
+      const setT = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
+      setT('receiptTurns', turns + " turns");
+      setT('receiptApologies', apologies + " grovels");
+      setT('receiptWords', words.toLocaleString() + " words");
+      setT('costOversight', "$" + costOversight.toFixed(2));
+      setT('costCorrect', "$" + costCorrect.toFixed(2));
+      setT('costCache', "$" + costCache.toFixed(2));
+      setT('receiptTotal', "$" + totalTax.toFixed(2) + " USD");
 
-      const tweetText = `Claude Opus 5 apologized to me ${apologies} times and charged me $${totalTax.toFixed(2)} in groveling fees. Calculate your apology tax at stfuopus.lol @AnthropicAI`;
-      document.getElementById('tweetBtn').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+      const tweetBtn = document.getElementById('tweetBtn');
+      if (tweetBtn) {
+        const tweetText = `Claude Opus 5 apologized to me ${apologies} times and charged me $${totalTax.toFixed(2)} in groveling fees. Calculate your apology tax at stfuopus.lol @AnthropicAI`;
+        tweetBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+      }
     }
 
     function addGrovel() {
-      const current = parseInt(document.getElementById('apologyInput').value) || 0;
-      document.getElementById('apologyInput').value = current + 1;
+      const apEl = document.getElementById('apologyInput');
+      if (!apEl) return;
+      const current = parseInt(apEl.value) || 0;
+      apEl.value = current + 1;
       calculateTax();
     }
 
+    document.addEventListener('DOMContentLoaded', calculateTax);
     calculateTax();
   </script>
 </body>
