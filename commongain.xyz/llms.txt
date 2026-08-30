@@ -1,0 +1,6 @@
+# commongain.xyz - The Sovereign Trajectory Commons
+
+> Pool verified failure->recovery ATIF trajectories. Train open-weights PRMs. Earn API credit rebates with zero-knowledge redaction.
+
+## Overview
+Governed by Unfoundbox Crew. 100% offline local forensics integration via npx agentworth.
