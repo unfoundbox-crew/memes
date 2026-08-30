@@ -15,14 +15,12 @@
   'use strict';
 
   // 1. Polyfill / Initialize navigator.modelContext & WebMCP registry
-  if (typeof global.navigator === 'undefined') {
-    global.navigator = {};
-  }
-
   const toolsRegistry = new Map();
 
-  const modelContext = global.navigator.modelContext || {
+  const webmcpImpl = {
+    version: '1.0.0',
     tools: toolsRegistry,
+    registry: toolsRegistry,
     registerTool: function (toolDef) {
       if (!toolDef || typeof toolDef !== 'object' || !toolDef.name) {
         throw new Error('[WebMCP] Tool definition must include a valid name.');
@@ -67,22 +65,36 @@
         }));
       }
       return result;
+    },
+    execute: function(name, params) {
+      return this.executeTool(name, params);
     }
   };
 
-  // Bind to navigator.modelContext
-  global.navigator.modelContext = modelContext;
+  // Bind to global WebMCP
+  global.WebMCP = webmcpImpl;
 
-  // Top-level global WebMCP namespace for convenient debugging & inspection
-  global.WebMCP = {
-    version: '1.0.0',
-    registry: toolsRegistry,
-    registerTool: modelContext.registerTool.bind(modelContext),
-    unregisterTool: modelContext.unregisterTool.bind(modelContext),
-    getTools: modelContext.getTools.bind(modelContext),
-    execute: modelContext.executeTool.bind(modelContext),
-    executeTool: modelContext.executeTool.bind(modelContext)
-  };
+  // Bind to navigator.modelContext safely
+  try {
+    if (!global.navigator) global.navigator = {};
+    if (!global.navigator.modelContext || typeof global.navigator.modelContext.registerTool !== 'function') {
+      try {
+        Object.defineProperty(global.navigator, 'modelContext', {
+          value: webmcpImpl,
+          writable: true,
+          configurable: true
+        });
+      } catch (e) {
+        global.navigator.modelContext = webmcpImpl;
+      }
+    }
+  } catch (err) {
+    console.warn('[WebMCP] Could not attach to navigator.modelContext:', err);
+  }
+
+  const modelContext = global.navigator && global.navigator.modelContext && typeof global.navigator.modelContext.registerTool === 'function'
+    ? global.navigator.modelContext
+    : webmcpImpl;
 
   // =========================================================================
   // TOOL 1: agentworth_local_audit
