@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <g fill="#000000" stroke="#000000" stroke-width="2">
+    <!-- Top & Bottom Spokes -->
+    <rect x="52" y="10" width="16" height="32" rx="3" fill="#ff6b00" />
+    <rect x="52" y="78" width="16" height="32" rx="3" fill="#ff6b00" />
+    <!-- Left & Right Spokes -->
+    <rect x="10" y="52" width="32" height="16" rx="3" fill="#ff6b00" />
+    <rect x="78" y="52" width="32" height="16" rx="3" fill="#ff6b00" />
+    <!-- Diagonal Spokes -->
+    <rect x="24" y="24" width="28" height="14" rx="3" transform="rotate(45 38 31)" fill="#e05600" />
+    <rect x="68" y="68" width="28" height="14" rx="3" transform="rotate(45 82 75)" fill="#e05600" />
+    <rect x="24" y="68" width="28" height="14" rx="3" transform="rotate(-45 38 75)" fill="#e05600" />
+    <rect x="68" y="24" width="28" height="14" rx="3" transform="rotate(-45 82 31)" fill="#e05600" />
+    <!-- Center Gaping Digital Mouth -->
+    <circle cx="60" cy="60" r="22" fill="#000000" stroke="#ffffff" stroke-width="3" />
+    <!-- Grovel Speech Particle ($75) -->
+    <text x="60" y="64" font-family="monospace" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="900">-$75</text>
+  </g>
+</svg>
