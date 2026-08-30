@@ -1,0 +1,117 @@
+{
+  "irVersion": "2.0",
+  "meta": {
+    "title": "XKCD #2946: 19 Crates to Print Hello World",
+    "author": "Unfoundbox Crew",
+    "engine": "MotionVector DocIR 2.0"
+  },
+  "output": {
+    "width": 1080,
+    "height": 1080,
+    "fps": 60
+  },
+  "theme": {
+    "palette": {
+      "bg": "#000000",
+      "ink": "#ffffff",
+      "border": "#ffffff"
+    },
+    "typography": {
+      "fontFamily": "JetBrains Mono, monospace"
+    }
+  },
+  "timeline": {
+    "beats": [
+      {
+        "id": "panel_1_request",
+        "durationMs": 3000,
+        "label": "1. The Request"
+      },
+      {
+        "id": "panel_2_fanout",
+        "durationMs": 4000,
+        "label": "2. Subagent Fanout"
+      },
+      {
+        "id": "panel_3_artifact",
+        "durationMs": 3500,
+        "label": "3. The Artifact"
+      },
+      {
+        "id": "panel_4_keynote",
+        "durationMs": 4500,
+        "label": "4. The Keynote"
+      }
+    ]
+  },
+  "beatContent": {
+    "panel_1_request": {
+      "actors": [
+        {
+          "id": "dev",
+          "type": "stick_figure",
+          "pose": "typing",
+          "x": 120,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "Hey Antigravity, print 'Hello World'."
+        }
+      ]
+    },
+    "panel_2_fanout": {
+      "actors": [
+        {
+          "id": "subagents",
+          "type": "stick_figure_swarm",
+          "count": 14,
+          "x": 200,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "orchestrator",
+          "text": "Spawning 14 subagents, building AST compiler, AST validator, and filing patents..."
+        }
+      ]
+    },
+    "panel_3_artifact": {
+      "actors": [
+        {
+          "id": "dev",
+          "type": "stick_figure",
+          "pose": "stunned",
+          "x": 150,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "agy",
+          "text": "Hello World. (19 crates compiled, 120 tests passed 100%)"
+        }
+      ]
+    },
+    "panel_4_keynote": {
+      "actors": [
+        {
+          "id": "sundar",
+          "type": "stick_figure",
+          "pose": "keynote_speaker",
+          "x": 180,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "sundar",
+          "text": "WE DIDN'T JUST PRINT HELLO WORLD. We constructed a sovereign AI galaxy."
+        }
+      ]
+    }
+  }
+}

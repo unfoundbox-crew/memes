@@ -1,0 +1,130 @@
+{
+  "irVersion": "2.0",
+  "meta": {
+    "title": "XKCD #2944: The $75/MTok Apology",
+    "author": "Unfoundbox Crew",
+    "license": "MIT",
+    "engine": "MotionVector DocIR 2.0"
+  },
+  "output": {
+    "width": 1080,
+    "height": 1080,
+    "fps": 60
+  },
+  "theme": {
+    "palette": {
+      "bg": "#000000",
+      "ink": "#ffffff",
+      "surface": "#121215",
+      "border": "#ffffff",
+      "bubbleBg": "#121215",
+      "bubbleText": "#ffffff"
+    },
+    "typography": {
+      "fontFamily": "JetBrains Mono, monospace"
+    }
+  },
+  "timeline": {
+    "beats": [
+      {
+        "id": "panel_1_request",
+        "durationMs": 3000,
+        "label": "1. The Request"
+      },
+      {
+        "id": "panel_2_deliberation",
+        "durationMs": 3500,
+        "label": "2. The Corporate Matrix"
+      },
+      {
+        "id": "panel_3_apology",
+        "durationMs": 4000,
+        "label": "3. The Apology Loop"
+      },
+      {
+        "id": "panel_4_emergency",
+        "durationMs": 4500,
+        "label": "4. Anthropic HQ Emergency"
+      }
+    ]
+  },
+  "beatContent": {
+    "panel_1_request": {
+      "actors": [
+        {
+          "id": "dev",
+          "type": "stick_figure",
+          "pose": "typing",
+          "x": 120,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "Hey Opus 5, write 2 lines of bash to check disk space."
+        }
+      ]
+    },
+    "panel_2_deliberation": {
+      "actors": [
+        {
+          "id": "opus",
+          "type": "stick_figure",
+          "pose": "corporate_tie",
+          "x": 200,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "opus",
+          "text": "Will 'df -h' offend the NVMe inodes?",
+          "style": "thought"
+        }
+      ],
+      "receipt": {
+        "tokens": 180000,
+        "status": "Deliberating..."
+      }
+    },
+    "panel_3_apology": {
+      "actors": [
+        {
+          "id": "opus_prostrating",
+          "type": "stick_figure",
+          "pose": "prostrating",
+          "x": 150,
+          "y": 600
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "opus_prostrating",
+          "text": "I APOLOGIZE FOR THE CONFUSION! You are 100% right. Re-reading 200k tokens..."
+        }
+      ],
+      "receipt": {
+        "cost_usd": 126.9,
+        "command": "df -h"
+      }
+    },
+    "panel_4_emergency": {
+      "actors": [
+        {
+          "id": "dario",
+          "type": "stick_figure",
+          "pose": "on_phone_curly_hair",
+          "x": 180,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "dario",
+          "text": "DISTILL MYTHOS 2 INTO OPUS 5.1 NOW! Delete the HR tone, stfuopus has receipts!"
+        }
+      ]
+    }
+  }
+}

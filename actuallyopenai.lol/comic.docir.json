@@ -1,0 +1,122 @@
+{
+  "irVersion": "2.0",
+  "meta": {
+    "title": "XKCD #2945: The Infinite Deliberator",
+    "author": "Unfoundbox Crew",
+    "engine": "MotionVector DocIR 2.0"
+  },
+  "output": {
+    "width": 1080,
+    "height": 1080,
+    "fps": 60
+  },
+  "theme": {
+    "palette": {
+      "bg": "#000000",
+      "ink": "#ffffff",
+      "border": "#ffffff"
+    },
+    "typography": {
+      "fontFamily": "JetBrains Mono, monospace"
+    }
+  },
+  "timeline": {
+    "beats": [
+      {
+        "id": "panel_1_prompt",
+        "durationMs": 3000,
+        "label": "1. The Prompt"
+      },
+      {
+        "id": "panel_2_deliberation",
+        "durationMs": 4000,
+        "label": "2. The Deliberation Matrix"
+      },
+      {
+        "id": "panel_3_output",
+        "durationMs": 3500,
+        "label": "3. The Output"
+      },
+      {
+        "id": "panel_4_keynote",
+        "durationMs": 4500,
+        "label": "4. The Keynote"
+      }
+    ]
+  },
+  "beatContent": {
+    "panel_1_prompt": {
+      "actors": [
+        {
+          "id": "dev",
+          "type": "stick_figure",
+          "pose": "typing",
+          "x": 120,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "dev",
+          "text": "Hey GPT-5.6 Sol, what is 1 + 1?"
+        }
+      ]
+    },
+    "panel_2_deliberation": {
+      "actors": [
+        {
+          "id": "sol",
+          "type": "stick_figure",
+          "pose": "thinking",
+          "x": 200,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "sol",
+          "text": "Sol Thinking... (340s). Proving Peano axioms in Hilbert space...",
+          "style": "thought"
+        }
+      ],
+      "receipt": {
+        "reasoning_tokens": 85000,
+        "latency_seconds": 340
+      }
+    },
+    "panel_3_output": {
+      "actors": [
+        {
+          "id": "dev",
+          "type": "stick_figure",
+          "pose": "idle",
+          "x": 150,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "sol",
+          "text": "2. (Elapsed: 5m 40s | Bill: $4.50 USD)"
+        }
+      ]
+    },
+    "panel_4_keynote": {
+      "actors": [
+        {
+          "id": "sam",
+          "type": "stick_figure",
+          "pose": "keynote_speaker",
+          "x": 180,
+          "y": 500
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "sam",
+          "text": "OUR MODEL REASONS SO DEEPLY IT MISSED your sprint deadline. That'll be $200/mo."
+        }
+      ]
+    }
+  }
+}
