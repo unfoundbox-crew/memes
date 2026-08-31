@@ -943,13 +943,13 @@
     /* FLOATING KEYBOARD SHORTCUT HUD PILL */
     .shortcut-hud {
       position: absolute;
-      bottom: 16px;
-      left: 18px;
-      background: rgba(5, 5, 6, 0.88);
+      bottom: 14px;
+      left: 14px;
+      background: rgba(5, 5, 6, 0.92);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(201, 162, 39, 0.35);
       border-radius: 9999px;
-      padding: 6px 14px;
+      padding: 5px 12px;
       font-family: var(--mono);
       font-size: 11px;
       font-weight: 700;
@@ -960,6 +960,10 @@
       z-index: 35;
       box-shadow: 0 6px 20px rgba(0,0,0,0.7);
       pointer-events: none;
+      max-width: calc(100% - 70px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .hud-kbd {
       background: #18181c;
@@ -972,9 +976,66 @@
     .hud-sep {
       color: var(--border-glow);
     }
-    @media (max-width: 680px) {
-      .shortcut-hud {
-        display: none;
+    .hud-mobile-hint {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .hud-desktop-only { display: none; }
+      .hud-mobile-hint { display: inline-flex; align-items: center; gap: 4px; }
+      .doomscroll-viewport {
+        height: clamp(560px, 78vh, 690px);
+        border-radius: 18px;
+      }
+      .doomscroll-slide {
+        padding: 34px 58px 20px 10px;
+      }
+      .receipt-card {
+        padding: 14px 12px;
+        border-radius: 14px;
+      }
+      .receipt-title {
+        font-size: clamp(14px, 4vw, 17px);
+      }
+      .ledger-grid {
+        padding: 8px 6px;
+        gap: 4px;
+      }
+      .ledger-item .l-val {
+        font-size: 14px;
+      }
+      .ledger-item .l-lbl {
+        font-size: 8.5px;
+      }
+      .diff-box {
+        font-size: 10.5px;
+        padding: 8px 10px;
+        max-height: 125px;
+      }
+      .interaction-rail {
+        right: 8px;
+        bottom: 14px;
+        gap: 8px;
+      }
+      .rail-btn {
+        width: 40px;
+        height: 40px;
+      }
+      .rail-emoji {
+        font-size: 18px;
+      }
+      .rail-btn-label {
+        font-size: 9px;
+      }
+      .nav-inner {
+        padding: 10px 14px;
+      }
+      .nav-links {
+        gap: 6px;
+      }
+      .nav-link {
+        font-size: 12px;
+        padding: 5px 9px;
       }
     }
 
@@ -1214,15 +1275,16 @@
             <!-- Injected via JavaScript -->
           </div>
 
-          <!-- Keyboard Shortcut HUD Pill in Corner -->
+          <!-- Keyboard Shortcut / Gesture HUD Pill in Corner -->
           <div class="shortcut-hud" id="shortcutHud">
-            <span><span class="hud-kbd">J</span>/<span class="hud-kbd">K</span> Navigate</span>
-            <span class="hud-sep">•</span>
-            <span><span class="hud-kbd">L</span> Laugh</span>
-            <span class="hud-sep">•</span>
-            <span><span class="hud-kbd">S</span> Share</span>
-            <span class="hud-sep">•</span>
-            <span><span class="hud-kbd">C</span> Diff</span>
+            <span class="hud-desktop-only"><span class="hud-kbd">J</span>/<span class="hud-kbd">K</span> Flip</span>
+            <span class="hud-desktop-only hud-sep">•</span>
+            <span class="hud-desktop-only"><span class="hud-kbd">L</span> Laugh</span>
+            <span class="hud-desktop-only hud-sep">•</span>
+            <span class="hud-desktop-only"><span class="hud-kbd">S</span> Share</span>
+            <span class="hud-desktop-only hud-sep">•</span>
+            <span class="hud-desktop-only"><span class="hud-kbd">C</span> Diff</span>
+            <span class="hud-mobile-hint">👆 Swipe to flip • Tap 😂</span>
           </div>
         </div>
       </div>
