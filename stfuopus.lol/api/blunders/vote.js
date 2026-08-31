@@ -26,7 +26,13 @@ module.exports = async function handler(req, res) {
     }
 
     const blunders = loadBlunders();
-    const blunder = blunders.find(b => b.id.toLowerCase() === id.toLowerCase());
+    const idClean = id.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const blunder = blunders.find(b => {
+      const bId = (b.id || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const bIncident = (b.incident_code || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const bRule = (b.rule_id || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      return bId === idClean || bIncident === idClean || bRule === idClean;
+    });
 
     if (!blunder) {
       return res.status(404).json({

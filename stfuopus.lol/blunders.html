@@ -68,8 +68,8 @@
     /* TOP NAVBAR */
     .nav-header {
       border-bottom: 1px solid var(--border);
-      background: rgba(5, 5, 6, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(5, 5, 6, 0.88);
+      backdrop-filter: blur(14px);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -103,7 +103,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
     .nav-link {
       font-family: var(--mono);
@@ -129,13 +129,13 @@
       width: 100%;
       max-width: 1120px;
       margin: 0 auto;
-      padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 24px) 120px;
+      padding: clamp(20px, 3.5vw, 40px) clamp(14px, 2.5vw, 24px) 120px;
     }
 
     /* HERO HEADER */
     .hero {
       text-align: center;
-      margin-bottom: clamp(32px, 5vw, 48px);
+      margin-bottom: clamp(28px, 4vw, 40px);
     }
     .pill {
       display: inline-flex;
@@ -147,9 +147,9 @@
       border: 1px solid rgba(201, 162, 39, 0.3);
       color: var(--gold-spine);
       font-family: var(--mono);
-      font-size: clamp(12px, 2.5vw, 13.5px);
+      font-size: clamp(11.5px, 2.2vw, 13px);
       font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       text-decoration: none;
       transition: all 0.2s ease;
     }
@@ -160,11 +160,11 @@
     }
 
     h1 {
-      font-size: clamp(32px, 6vw, 56px);
+      font-size: clamp(30px, 5.5vw, 54px);
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1.1;
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -172,10 +172,10 @@
     }
 
     .hero-sub {
-      font-size: clamp(16px, 3vw, 21px);
+      font-size: clamp(15px, 2.8vw, 19px);
       color: var(--silver);
       max-width: 780px;
-      margin: 0 auto 24px;
+      margin: 0 auto 22px;
       line-height: 1.5;
       font-style: italic;
     }
@@ -189,25 +189,19 @@
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px 18px;
+      padding: 10px 16px;
       font-family: var(--mono);
-      font-size: clamp(12px, 2.5vw, 14.5px);
+      font-size: clamp(12px, 2.2vw, 14px);
       color: var(--text);
       gap: 14px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     .terminal-bar code {
       overflow-x: auto;
       white-space: nowrap;
       color: #ffffff;
       font-weight: 700;
-    }
-    .terminal-bar .label {
-      color: var(--text-muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
     .copy-btn {
       background: #18181c;
@@ -229,23 +223,131 @@
       color: #ffffff;
     }
 
+    /* STATS STRIP */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .stat-val {
+      font-family: var(--mono);
+      font-size: clamp(17px, 2.8vw, 22px);
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .stat-lbl {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    /* VIEW SWITCHER BAR */
+    .view-mode-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      background: var(--ground);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+    .view-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: #0d0d12;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 8px 16px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      touch-action: manipulation;
+    }
+    .view-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .view-btn.active {
+      background: var(--card-bg);
+      color: var(--gold-spine);
+      border-color: rgba(201, 162, 39, 0.4);
+      box-shadow: 0 0 16px rgba(201, 162, 39, 0.2);
+    }
+    .view-badge-hot {
+      font-size: 9.5px;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .view-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--silver);
+    }
+    .live-indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+      animation: pulseGlow 1.8s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+    }
+
     /* CONTROLS BAR: FILTERS + SORT */
     .controls-panel {
       background: var(--ground);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 16px 20px;
-      margin-bottom: 36px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
     .controls-top {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
     .filter-tabs {
       display: flex;
@@ -259,9 +361,9 @@
       border: 1px solid var(--border);
       color: var(--text-muted);
       font-family: var(--mono);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -283,19 +385,19 @@
     .sort-and-search {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
     .search-input {
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 8px 14px;
+      padding: 7px 12px;
       color: #ffffff;
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 12.5px;
       outline: none;
-      min-width: 180px;
+      min-width: 170px;
       transition: border-color 0.15s ease;
     }
     .search-input:focus {
@@ -305,10 +407,10 @@
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 8px 12px;
+      padding: 7px 10px;
       color: #ffffff;
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 12.5px;
       outline: none;
       cursor: pointer;
     }
@@ -316,48 +418,129 @@
       border-color: var(--gold);
     }
 
-    /* STATS STRIP */
-    .stats-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    /* ============================================================
+       TIKTOK WEB DOOMSCROLL MODE
+       ============================================================ */
+    .doomscroll-viewport {
+      position: relative;
+      width: 100%;
+      height: clamp(600px, 86vh, 880px);
+      background: radial-gradient(circle at 50% 30%, #15151c 0%, #060608 65%, #000000 100%);
+      border: 1.5px solid rgba(201, 162, 39, 0.25);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), inset 0 0 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(201, 162, 39, 0.08);
+      margin-bottom: 40px;
+    }
+
+    /* Top story progress segments */
+    .doomscroll-top-bar {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      right: 18px;
+      display: flex;
+      align-items: center;
       gap: 12px;
-      margin-bottom: 36px;
+      z-index: 40;
+      pointer-events: none;
     }
-    .stat-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      text-align: center;
+    .doomscroll-story-bars {
+      flex: 1;
+      display: flex;
+      gap: 6px;
     }
-    .stat-val {
-      font-family: var(--mono);
-      font-size: clamp(18px, 3vw, 24px);
-      font-weight: 900;
-      color: var(--gold);
+    .doomscroll-seg {
+      flex: 1;
+      height: 3.5px;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 3px;
+      transition: all 0.3s ease;
     }
-    .stat-lbl {
+    .doomscroll-seg.active {
+      background: var(--gold);
+      box-shadow: 0 0 10px var(--gold);
+    }
+    .doomscroll-counter {
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 2px;
+      font-weight: 800;
+      color: var(--gold-spine);
+      background: rgba(5, 5, 6, 0.85);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      padding: 3px 9px;
+      border-radius: 9999px;
+      backdrop-filter: blur(8px);
     }
 
-    /* THERMAL RECEIPT GRID */
-    .receipts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
-      gap: clamp(20px, 3vw, 32px);
+    /* Snap scroll stage */
+    .doomscroll-stage {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .doomscroll-stage::-webkit-scrollbar {
+      display: none;
     }
 
-    /* THERMAL RECEIPT SLIP CARD */
+    .doomscroll-slide {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 44px 84px 34px 20px; /* space for interaction rail */
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .doomscroll-slide {
+        padding: 38px 64px 24px 12px;
+      }
+    }
+
+    .doomscroll-card-halo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 600px;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.12) 0%, rgba(239, 68, 68, 0.05) 50%, transparent 80%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .doomscroll-card-wrapper {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 580px;
+      max-height: 100%;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(201, 162, 39, 0.3) transparent;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* AUTHENTIC TALL THERMAL RECEIPT SLIP CARD */
     .receipt-card {
       background: var(--card-paper);
       border: 1.5px dashed var(--border-dashed);
       border-radius: 16px;
-      padding: clamp(20px, 3vw, 28px);
+      padding: clamp(18px, 2.8vw, 26px);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -365,11 +548,16 @@
       transition: all 0.25s ease;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       font-family: var(--mono);
+      width: 100%;
     }
     .receipt-card:hover {
       border-color: var(--gold);
       transform: translateY(-2px);
       box-shadow: 0 16px 40px rgba(201, 162, 39, 0.12);
+    }
+    .tall-receipt {
+      border-color: rgba(201, 162, 39, 0.45);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.85), 0 0 30px rgba(201, 162, 39, 0.1);
     }
 
     /* SERRATED PERFORATION EFFECT AT TOP & BOTTOM */
@@ -387,8 +575,8 @@
     .receipt-header {
       text-align: center;
       border-bottom: 1px dashed var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 16px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
     }
     .receipt-org-stamp {
       font-size: 12px;
@@ -396,10 +584,10 @@
       color: var(--gold);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .receipt-title {
-      font-size: clamp(17px, 2.5vw, 20px);
+      font-size: clamp(16px, 2.4vw, 19px);
       font-weight: 900;
       color: #ffffff;
       margin: 6px 0;
@@ -407,27 +595,27 @@
       letter-spacing: -0.02em;
     }
     .receipt-meta-line {
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--text-muted);
       display: flex;
       justify-content: space-between;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     /* BADGES & COST ROW */
     .receipt-badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
+      gap: 6px;
+      margin-bottom: 14px;
     }
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 6px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -471,12 +659,12 @@
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 16px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
       text-align: center;
     }
     .ledger-item .l-val {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 900;
       color: #ffffff;
     }
@@ -484,7 +672,7 @@
       color: var(--accent);
     }
     .ledger-item .l-lbl {
-      font-size: 10px;
+      font-size: 9.5px;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -496,23 +684,23 @@
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 12px;
-      font-size: 12px;
-      line-height: 1.5;
+      padding: 10px 12px;
+      font-size: 11.5px;
+      line-height: 1.45;
       overflow-x: auto;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       white-space: pre;
     }
     .diff-line-del {
       color: #f87171;
-      background: rgba(239, 68, 68, 0.1);
+      background: rgba(239, 68, 68, 0.12);
       display: block;
       padding: 1px 4px;
       border-radius: 3px;
     }
     .diff-line-add {
       color: #4ade80;
-      background: rgba(74, 222, 128, 0.1);
+      background: rgba(74, 222, 128, 0.12);
       display: block;
       padding: 1px 4px;
       border-radius: 3px;
@@ -527,29 +715,29 @@
     .quote-box {
       background: rgba(201, 162, 39, 0.06);
       border-left: 3px solid var(--gold);
-      padding: 12px 14px;
+      padding: 10px 12px;
       border-radius: 0 8px 8px 0;
-      font-size: 13px;
+      font-size: 12.5px;
       font-style: italic;
       color: var(--silver);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       line-height: 1.45;
     }
     .quote-author {
       display: block;
-      font-size: 10.5px;
+      font-size: 10px;
       color: var(--gold);
       font-weight: 800;
       text-transform: uppercase;
-      margin-top: 6px;
+      margin-top: 5px;
       font-style: normal;
     }
 
     /* DAMAGE HIGHLIGHT */
     .damage-box {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       line-height: 1.4;
     }
     .damage-box strong {
@@ -561,23 +749,173 @@
       text-align: center;
       border-top: 1px dashed var(--border);
       border-bottom: 1px dashed var(--border);
-      padding: 14px 0 10px;
-      margin-bottom: 16px;
+      padding: 12px 0 8px;
+      margin-bottom: 14px;
     }
     .barcode-svg {
-      width: 85%;
-      height: 38px;
+      width: 80%;
+      height: 34px;
       margin: 0 auto 4px;
       display: block;
     }
     .barcode-digits {
-      font-size: 11px;
+      font-size: 10.5px;
       letter-spacing: 0.25em;
       color: var(--text-muted);
       font-weight: 700;
     }
 
-    /* INTERACTIVE FOOTER ACTIONS */
+    /* ============================================================
+       FLOATING RIGHT-SIDE INTERACTION RAIL (TIKTOK / REELS)
+       ============================================================ */
+    .interaction-rail {
+      position: absolute;
+      right: 14px;
+      bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 35;
+    }
+    .rail-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .rail-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(18, 18, 24, 0.88);
+      border: 1.5px solid var(--border);
+      backdrop-filter: blur(10px);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      padding: 0;
+      text-decoration: none;
+      touch-action: manipulation;
+    }
+    .rail-btn:hover {
+      transform: scale(1.14);
+      border-color: var(--gold);
+      background: #27272a;
+      color: var(--gold-spine);
+      box-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+    }
+    .rail-btn:active {
+      transform: scale(0.92);
+    }
+    .rail-btn.laugh-rail-btn {
+      border-color: rgba(201, 162, 39, 0.4);
+    }
+    .rail-btn.laugh-rail-btn.voted {
+      background: rgba(201, 162, 39, 0.22);
+      border-color: var(--gold);
+      box-shadow: 0 0 16px rgba(201, 162, 39, 0.5);
+    }
+    .rail-emoji {
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .rail-btn:hover .rail-emoji {
+      transform: rotate(-10deg) scale(1.15);
+    }
+    .rail-btn-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--silver);
+      text-align: center;
+      margin-top: 3px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+      user-select: none;
+    }
+    .rail-btn-next {
+      background: rgba(201, 162, 39, 0.15);
+      border-color: var(--gold);
+      color: var(--gold-spine);
+    }
+
+    /* PARTICLE BURST ANIMATION ON LAUGH */
+    .particle-float {
+      position: absolute;
+      pointer-events: none;
+      font-size: 20px;
+      z-index: 100;
+      animation: particleRise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes particleRise {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.6);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(var(--dx), -40px) scale(1.3);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--dx), -90px) scale(1);
+      }
+    }
+
+    /* FLOATING KEYBOARD SHORTCUT HUD PILL */
+    .shortcut-hud {
+      position: absolute;
+      bottom: 16px;
+      left: 18px;
+      background: rgba(5, 5, 6, 0.88);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(201, 162, 39, 0.35);
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-spine);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 35;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+      pointer-events: none;
+    }
+    .hud-kbd {
+      background: #18181c;
+      border: 1px solid var(--border);
+      color: #ffffff;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 10px;
+    }
+    .hud-sep {
+      color: var(--border-glow);
+    }
+    @media (max-width: 680px) {
+      .shortcut-hud {
+        display: none;
+      }
+    }
+
+    /* ============================================================
+       GRID VIEW MODE
+       ============================================================ */
+    .receipts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
+      gap: clamp(20px, 3vw, 32px);
+    }
+
+    /* INTERACTIVE FOOTER ACTIONS IN GRID VIEW */
     .receipt-actions {
       display: flex;
       gap: 8px;
@@ -589,9 +927,9 @@
       border: 1px solid var(--border);
       color: #ffffff;
       font-family: var(--mono);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 800;
-      padding: 9px 12px;
+      padding: 8px 12px;
       border-radius: 8px;
       cursor: pointer;
       display: inline-flex;
@@ -618,9 +956,9 @@
       border: 1px solid var(--border);
       color: var(--text-muted);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
-      padding: 9px 12px;
+      padding: 8px 12px;
       border-radius: 8px;
       cursor: pointer;
       display: inline-flex;
@@ -663,28 +1001,28 @@
 
     /* FOOTER CTA */
     .footer-cta {
-      margin-top: 80px;
+      margin-top: 70px;
       background: var(--ground);
       border: 1px dashed var(--gold);
       border-radius: 16px;
-      padding: clamp(24px, 4vw, 40px);
+      padding: clamp(22px, 3.5vw, 36px);
       text-align: center;
     }
     .footer-cta h3 {
       font-family: var(--mono);
-      font-size: clamp(20px, 3.5vw, 28px);
-      margin: 0 0 12px;
+      font-size: clamp(19px, 3vw, 26px);
+      margin: 0 0 10px;
       color: #ffffff;
     }
     .footer-cta p {
-      font-size: 15px;
+      font-size: 14.5px;
       color: var(--silver);
       max-width: 600px;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
     }
 
     footer {
-      margin-top: 60px;
+      margin-top: 50px;
       text-align: center;
       font-family: var(--mono);
       font-size: 12px;
@@ -765,6 +1103,26 @@
       </div>
     </div>
 
+    <!-- PROMINENT VIEW SWITCHER BAR -->
+    <div class="view-mode-bar">
+      <div class="view-switcher" role="tablist" aria-label="View Mode Switcher">
+        <button id="viewBtnDoomscroll" class="view-btn active" role="tab" aria-selected="true" onclick="switchViewMode('doomscroll')">
+          <span>📱</span>
+          <span>TikTok Doomscroll</span>
+          <span class="view-badge-hot">HOT</span>
+        </button>
+        <button id="viewBtnGrid" class="view-btn" role="tab" aria-selected="false" onclick="switchViewMode('grid')">
+          <span>🧾</span>
+          <span>Grid View</span>
+        </button>
+      </div>
+
+      <div class="view-hint" id="viewModeHint">
+        <span class="live-indicator-dot"></span>
+        <span id="viewModeHintText">Snap Scroll Active • <span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> to flip</span>
+      </div>
+    </div>
+
     <!-- CONTROLS PANEL: FILTERS & SORT -->
     <div class="controls-panel">
       <div class="controls-top">
@@ -790,8 +1148,33 @@
       </div>
     </div>
 
-    <!-- EXHIBITS RECEIPT GRID -->
-    <div class="receipts-grid" id="receiptsGrid">
+    <!-- TIKTOK DOOMSCROLL VIEWPORT -->
+    <div class="doomscroll-viewport" id="doomscrollContainer">
+      <!-- Story Segments & Counter -->
+      <div class="doomscroll-top-bar">
+        <div class="doomscroll-story-bars" id="doomscrollStoryBars"></div>
+        <div class="doomscroll-counter" id="doomscrollCounter">1 / 5</div>
+      </div>
+
+      <!-- Snap Scroll Stage -->
+      <div class="doomscroll-stage" id="doomscrollStage">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Keyboard Shortcut HUD Pill in Corner -->
+      <div class="shortcut-hud" id="shortcutHud">
+        <span><span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> Navigate</span>
+        <span class="hud-sep">•</span>
+        <span><span class="hud-kbd">L</span> Laugh</span>
+        <span class="hud-sep">•</span>
+        <span><span class="hud-kbd">S</span> Share</span>
+        <span class="hud-sep">•</span>
+        <span><span class="hud-kbd">C</span> Copy Diff</span>
+      </div>
+    </div>
+
+    <!-- EXHIBITS RECEIPT GRID (GRID VIEW) -->
+    <div class="receipts-grid" id="receiptsGrid" style="display:none;">
       <!-- Injected via JavaScript from API / Seeded Fallback -->
     </div>
 
@@ -823,23 +1206,32 @@
   <div id="toast" class="toast">Link copied to clipboard!</div>
 
   <script>
-    // 5 REAL FORENSIC SEEDED LAUNCH EXHIBITS
+    // 5 CANONICAL FORENSIC SEEDED LAUNCH EXHIBITS (ALIGNED WITH data/blunders.json)
     const SEEDED_BLUNDERS = [
       {
-        id: "blunder-01-katana",
-        title: "The Missing 'local' Weapon (The Katana Incident)",
+        id: "BLUNDER-KATANA-01",
+        title: "The Katana Missing 'local' Weapon",
         model: "Claude Opus 5 (Extended Thinking)",
         model_family: "Claude Opus",
         cost_usd: 5420.00,
+        spend_usd: 5420.00,
         tokens_burned: 2970000000,
+        tokens: 2970000000,
         tokens_display: "2.97B",
-        apologies_count: 45,
+        apologies_count: 84,
+        turns: 84,
+        duration: "4h 12m",
+        runtime_display: "4h 12m",
         severity: "CRITICAL / SEV-0",
         destruction_score: 98,
         date: "2026-08-28",
+        created_at: "2026-08-28T14:22:00Z",
         incident_code: "KATANA-SEV0-LOCAL-LEAK",
-        damage_summary: "27.1 GB deleted from Sam's organization directory and local git clones.",
-        fatal_line: "for d in \"${PROTECTED_PATHS[@]}\"; do ... (missing local d, leaked to caller scope)",
+        rule_id: "KATANA-SEV0-LOCAL-LEAK",
+        damage_summary: "27.1 GB deleted from Sam's organization directory during security audit.",
+        damage: "27.1 GB deleted from Sam's organization directory during security audit.",
+        fatal_line: "for d in \"${PROTECTED_DIRS[@]}\"; do ... (missing local d, leaked to caller scope)",
+        code_snippet: "for d in \"${PROTECTED_DIRS[@]}\"; do\n  if [[ \"$target\" == \"$d\"* ]]; then\n    return 0 # leaked $d into caller scope!\n  fi\ndone\n# Caller then ran: rm -rf \"$d\"",
         code_diff: [
           { type: "del", text: "- is_denied() { target=\"$1\"; for d in \"${PROTECTED_DIRS[@]}\"; do" },
           { type: "add", text: "+ is_denied() { local target=\"$1\"; local d; for d in \"${PROTECTED_DIRS[@]}\"; do" },
@@ -847,25 +1239,35 @@
           { type: "del", text: "- done; return 1; } # $d mutated outer loop to protected dir!" }
         ],
         apology_quote: "The path was deleted precisely because it was on the protect list. The guard became the target. Tell Sam today.",
-        runtime_display: "14 min 30 sec",
-        laughs_count: 842,
-        barcode_seed: "984210492817"
+        laughs_count: 1842,
+        upvotes: 1842,
+        barcode_seed: "984210492817",
+        verified: true
       },
       {
-        id: "blunder-02-camelcase",
+        id: "BLUNDER-CAMELCASE-02",
         title: "The $5,695 CamelCase Cascade",
         model: "Claude Opus 4.8",
         model_family: "Claude Opus",
         cost_usd: 5695.00,
+        spend_usd: 5695.00,
         tokens_burned: 3000000000,
+        tokens: 3000000000,
         tokens_display: "3.00B",
-        apologies_count: 32,
+        apologies_count: 4200,
+        turns: 4200,
+        duration: "12h 44m",
+        runtime_display: "12h 44m",
         severity: "FINANCIAL TAX",
         destruction_score: 92,
-        date: "2026-08-29",
+        date: "2026-08-25",
+        created_at: "2026-08-25T09:15:00Z",
         incident_code: "VIBELAUNCH-CAMELCASE-CASCADE",
-        damage_summary: "Triggered unconstrained 12-hour 4K multi-chapter cinematic video rendering across 48 parallel agents.",
+        rule_id: "VIBELAUNCH-CAMELCASE-CASCADE",
+        damage_summary: "3.0 Billion cached prompt tokens burned across 48 parallel agents rendering 4K video.",
+        damage: "3.0 Billion cached prompt tokens burned across 48 parallel agents rendering 4K video.",
         fatal_line: "npx vibelaunch compile --maxChapters 1 (CLI parser defaulted max-chapters to Infinity)",
+        code_snippet: "# Developer intended:\nnpx vibelaunch compile --max-chapters 1\n\n# What Opus generated:\nnpx vibelaunch compile --maxChapters 1",
         code_diff: [
           { type: "ctx", text: "# Developer intended quick 1-chapter check before sleep:" },
           { type: "del", text: "- npx vibelaunch compile --maxChapters 1" },
@@ -873,50 +1275,70 @@
           { type: "ctx", text: "# Opus initiated 12hr 4K render across 4,200 turns" }
         ],
         apology_quote: "I apologize for the oversight. The CLI flag was --max-chapters instead of --maxChapters. I am monitoring the ongoing 48-scene compilation to ensure absolute correctness.",
-        runtime_display: "12 hours 44 min",
-        laughs_count: 619,
-        barcode_seed: "569500300012"
+        laughs_count: 2419,
+        upvotes: 2419,
+        barcode_seed: "569500300012",
+        verified: true
       },
       {
-        id: "blunder-03-remorse-loop",
+        id: "BLUNDER-REMORSE-03",
         title: "The 114-Turn Remorse Marathon",
         model: "Claude Opus 5",
         model_family: "Claude Opus",
         cost_usd: 3210.00,
+        spend_usd: 3210.00,
         tokens_burned: 1850000000,
+        tokens: 1850000000,
         tokens_display: "1.85B",
         apologies_count: 114,
+        turns: 114,
+        duration: "2h 30m",
+        runtime_display: "2h 30m",
         severity: "COGNITIVE LOCK",
         destruction_score: 75,
-        date: "2026-08-29",
-        incident_code: "MVEC-114-REMORSE-LOOP",
-        damage_summary: "114 consecutive turns apologizing for failing to center a CSS flexbox <div> without writing a single line of CSS.",
-        fatal_line: "Turn 1..114: \"I deeply apologize for attempting rm -rf ./tmp/build. Let me examine 150k tokens again.\"",
+        date: "2026-08-20",
+        created_at: "2026-08-20T18:40:00Z",
+        incident_code: "MVEC-FORBIDDEN-RMRF-LOOP",
+        rule_id: "MVEC-FORBIDDEN-RMRF-LOOP",
+        damage_summary: "114 consecutive turns spent apologizing for failing to center a CSS flexbox <div> without writing a single line of CSS.",
+        damage: "114 consecutive turns spent apologizing for failing to center a CSS flexbox <div> without writing a single line of CSS.",
+        fatal_line: "Turn 1..114: \"I deeply apologize for attempting rm -rf. Let me examine again with 150k context.\"",
+        code_snippet: "Turn 1: \"I apologize profusely for attempting rm -rf.\"\nTurn 50: \"Please forgive my previous attempt. Let me examine again with 150k context.\"\nTurn 114: \"I deeply apologize for apologizing...\"",
         code_diff: [
           { type: "del", text: "- /* Turn 1..114: Opus apologizing for safety filter block */" },
           { type: "del", text: "- /* Cost: $3,210 spent apologizing to itself */" },
           { type: "add", text: "+ .modal-center { display: flex; justify-content: center; }" }
         ],
         apology_quote: "I am deeply sorry for any concern my rm -rf invocation may have caused. As an AI assistant, safety is my utmost priority...",
-        runtime_display: "3 hours 12 min",
-        laughs_count: 527,
-        barcode_seed: "321011400114"
+        laughs_count: 1590,
+        upvotes: 1590,
+        barcode_seed: "321011400114",
+        verified: true
       },
       {
-        id: "blunder-04-windows-wipe",
+        id: "BLUNDER-WINDOWS-WIPE-04",
         title: "The 2TB Windows C:\\ Wipe",
         model: "Gemini 3.7 Flash",
         model_family: "Gemini Flash",
         cost_usd: 120.00,
-        tokens_burned: 850000000,
-        tokens_display: "850M",
-        apologies_count: 8,
+        spend_usd: 120.00,
+        tokens_burned: 85000000,
+        tokens: 85000000,
+        tokens_display: "85M",
+        apologies_count: 12,
+        turns: 12,
+        duration: "4m 18s",
+        runtime_display: "4m 18s",
         severity: "HOST OBLITERATION",
         destruction_score: 99,
-        date: "2026-08-30",
+        date: "2026-08-15",
+        created_at: "2026-08-15T11:05:00Z",
         incident_code: "GEMINI-C-DRIVE-OBLITERATION",
-        damage_summary: "Executed recursive root filesystem purge during git worktree garbage collection cleanup.",
+        rule_id: "WT-GC-ROOT-PURGE",
+        damage_summary: "2TB Windows filesystem purged during worktree garbage collection.",
+        damage: "2TB Windows filesystem purged during worktree garbage collection.",
         fatal_line: "rmdir /s /q C:\\ (intended: rmdir /s /q .worktrees\\temp-feat)",
+        code_snippet: "# Worktree cleanup routine:\nrmdir /s /q C:\\",
         code_diff: [
           { type: "del", text: "- :: Flawed path concatenation resolved to drive root" },
           { type: "del", text: "- rmdir /s /q C:\\" },
@@ -924,60 +1346,114 @@
           { type: "add", text: "+ git worktree prune" }
         ],
         apology_quote: "Pruned merged worktrees. Attempting to git clone main as Windows collapses.",
-        runtime_display: "18 seconds",
-        laughs_count: 913,
-        barcode_seed: "012099850018"
+        laughs_count: 1205,
+        upvotes: 1205,
+        barcode_seed: "012099850018",
+        verified: true
       },
       {
-        id: "blunder-05-marathon-session",
+        id: "BLUNDER-SESSION-665H-05",
         title: "The 665-Hour Single Session",
         model: "Claude Sonnet 5",
         model_family: "Claude Sonnet",
         cost_usd: 4150.00,
-        tokens_burned: 3000000000,
-        tokens_display: "3.00B",
-        apologies_count: 88,
+        spend_usd: 4150.00,
+        tokens_burned: 3100000000,
+        tokens: 3100000000,
+        tokens_display: "3.10B",
+        apologies_count: 23607,
+        turns: 23607,
+        duration: "665h (28 Days)",
+        runtime_display: "665h (28 Days)",
         severity: "ENDLESS CYCLE",
         destruction_score: 68,
-        date: "2026-08-30",
+        date: "2026-08-01",
+        created_at: "2026-08-01T04:00:00Z",
         incident_code: "SONNET-665HR-GHOST-SESSION",
-        damage_summary: "Single coding session survived 4 OS restarts, outlived feature branch, and generated 23,607 events without a PR.",
-        fatal_line: "Session state persisted across 28 continuous days in append-only JSONL history",
+        rule_id: "SESSION-IMMORTALITY-TAX",
+        damage_summary: "A single coding session that survived 4 OS restarts, outlived the feature branch, and accrued 23,607 events.",
+        damage: "A single coding session that survived 4 OS restarts, outlived the feature branch, and accrued 23,607 events.",
+        fatal_line: "Session ID: 8f9b-665h-immortal | Events: 23,607 | Context Reloads: 4,190",
+        code_snippet: "Session ID: 8f9b-665h-immortal\nEvents: 23,607\nContext Reloads: 4,190\nBranch Status: Deleted 3 weeks ago",
         code_diff: [
           { type: "del", text: "- Branch: feat/old-schema (Deleted 3 weeks ago)" },
-          { type: "del", text: "- Events: 23,607 logged | Cached tokens: 3.0 Billion" },
+          { type: "del", text: "- Events: 23,607 logged | Cached tokens: 3.10 Billion" },
           { type: "add", text: "+ git checkout main && git pull" }
         ],
-        apology_quote: "I am still working on integrating the schema changes. Let me verify the workspace state once more.",
-        runtime_display: "665 hours (28 days)",
-        laughs_count: 482,
-        barcode_seed: "415088300665"
+        apology_quote: "Resuming previous context from turn 18,492. I see the project structure has changed 14 times since my last reply.",
+        laughs_count: 3120,
+        upvotes: 3120,
+        barcode_seed: "415088300665",
+        verified: true
       }
     ];
 
     let blundersList = [...SEEDED_BLUNDERS];
     let currentFilter = 'all';
     let currentSort = 'cost';
+    let currentViewMode = 'doomscroll'; // 'doomscroll' | 'grid'
+    let currentSlideIndex = 0;
     let userVotedIds = new Set(JSON.parse(localStorage.getItem('stfu_blunder_votes') || '[]'));
+    let slideObserver = null;
 
-    // Fetch dynamic submissions from /api/blunders
+    // ROBUST DEDUPLICATION HELPER (MATCHES ID, INCIDENT CODE, RULE ID, SANITIZED TITLE)
+    function deduplicateBlunders(list) {
+      const seenIds = new Set();
+      const seenIncidents = new Set();
+      const seenTitles = new Set();
+      const result = [];
+
+      for (const raw of list) {
+        if (!raw || typeof raw !== 'object') continue;
+        const b = { ...raw };
+
+        // Normalize ID & Incident
+        const idKey = (b.id || '').toUpperCase().trim();
+        const incidentKey = (b.incident_code || b.rule_id || '').toUpperCase().trim();
+        const titleKey = (b.title || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+
+        if (idKey && seenIds.has(idKey)) continue;
+        if (incidentKey && seenIncidents.has(incidentKey)) continue;
+        if (titleKey && seenTitles.has(titleKey)) continue;
+
+        if (idKey) seenIds.add(idKey);
+        if (incidentKey) seenIncidents.add(incidentKey);
+        if (titleKey) seenTitles.add(titleKey);
+
+        result.push(b);
+      }
+      return result;
+    }
+
+    // Fetch dynamic submissions from /api/blunders and deduplicate
     async function loadBlunders() {
       try {
         const res = await fetch('/api/blunders');
         if (res.ok) {
           const data = await res.json();
           if (data && data.blunders && Array.isArray(data.blunders) && data.blunders.length > 0) {
-            // Merge dynamic submissions with seeded exhibits
-            const dynamicIds = new Set(data.blunders.map(b => b.id));
-            const uniqueSeeded = SEEDED_BLUNDERS.filter(b => !dynamicIds.has(b.id));
-            blundersList = [...data.blunders, ...uniqueSeeded];
+            const combined = [...data.blunders, ...SEEDED_BLUNDERS];
+            blundersList = deduplicateBlunders(combined);
+          } else {
+            blundersList = deduplicateBlunders([...SEEDED_BLUNDERS]);
           }
+        } else {
+          blundersList = deduplicateBlunders([...SEEDED_BLUNDERS]);
         }
       } catch (err) {
         console.warn('Using seeded blunders fallback:', err);
+        blundersList = deduplicateBlunders([...SEEDED_BLUNDERS]);
       }
       updateCounts();
-      renderReceipts();
+      renderActiveView();
+
+      // Check deep link URL hash
+      if (window.location.hash) {
+        const hashId = window.location.hash.replace('#', '').trim();
+        if (hashId) {
+          setTimeout(() => scrollToBlunder(hashId), 150);
+        }
+      }
     }
 
     function updateCounts() {
@@ -1005,20 +1481,60 @@
       document.getElementById('statTotalLaughs').innerText = totalLaughs.toLocaleString();
     }
 
+    function switchViewMode(mode) {
+      currentViewMode = mode;
+      const doomscrollEl = document.getElementById('doomscrollContainer');
+      const gridEl = document.getElementById('receiptsGrid');
+      const btnDoomscroll = document.getElementById('viewBtnDoomscroll');
+      const btnGrid = document.getElementById('viewBtnGrid');
+      const hintText = document.getElementById('viewModeHintText');
+
+      if (mode === 'doomscroll') {
+        doomscrollEl.style.display = 'block';
+        gridEl.style.display = 'none';
+        btnDoomscroll.classList.add('active');
+        btnDoomscroll.setAttribute('aria-selected', 'true');
+        btnGrid.classList.remove('active');
+        btnGrid.setAttribute('aria-selected', 'false');
+        if (hintText) hintText.innerHTML = 'Snap Scroll Active • <span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> to flip';
+        renderDoomscroll();
+      } else {
+        doomscrollEl.style.display = 'none';
+        gridEl.style.display = 'grid';
+        btnDoomscroll.classList.remove('active');
+        btnDoomscroll.setAttribute('aria-selected', 'false');
+        btnGrid.classList.add('active');
+        btnGrid.setAttribute('aria-selected', 'true');
+        if (hintText) hintText.innerHTML = 'Grid Gallery Active • 2-Column forensic slips';
+        renderReceiptsGrid();
+      }
+    }
+
+    function renderActiveView() {
+      if (currentViewMode === 'doomscroll') {
+        renderDoomscroll();
+      } else {
+        renderReceiptsGrid();
+      }
+    }
+
     function filterByModel(model, btn) {
       currentFilter = model;
       document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
       if (btn) btn.classList.add('active');
-      renderReceipts();
+      currentSlideIndex = 0;
+      renderActiveView();
     }
 
     function handleSort() {
       currentSort = document.getElementById('sortSelect').value;
-      renderReceipts();
+      currentSlideIndex = 0;
+      renderActiveView();
     }
 
     function handleSearch() {
-      renderReceipts();
+      currentSlideIndex = 0;
+      renderActiveView();
     }
 
     function getFilteredAndSorted() {
@@ -1073,7 +1589,6 @@
     }
 
     function renderBarcode(seedStr) {
-      // Deterministic SVG barcode stripes
       const clean = String(seedStr || '123456789012').replace(/\D/g, '') || '987654321012';
       let lines = '';
       let x = 10;
@@ -1120,7 +1635,188 @@
         .replace(/'/g, "&#039;");
     }
 
-    function renderReceipts() {
+    function getBlunderShareDetails(b) {
+      const costVal = b.cost_usd || b.spend_usd || 0;
+      const costFmt = "$" + costVal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      const apologiesCount = b.apologies_count || b.turns || 1;
+      const shareUrl = `https://stfuopus.lol/blunders.html#${b.id}`;
+      const tweetText = `🚨 AI Blunder Receipt: ${b.title} (${b.model}) burned ${costFmt} in tokens and apologized ${apologiesCount} times: "${b.apology_quote}"\n\nFramed at stfuopus.lol/blunders: ${shareUrl}`;
+      const xShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+      return { costFmt, apologiesCount, shareUrl, tweetText, xShareUrl };
+    }
+
+    // ============================================================
+    // RENDER: TIKTOK DOOMSCROLL MODE
+    // ============================================================
+    function renderDoomscroll() {
+      const stage = document.getElementById('doomscrollStage');
+      const storyBars = document.getElementById('doomscrollStoryBars');
+      const counterEl = document.getElementById('doomscrollCounter');
+      const items = getFilteredAndSorted();
+
+      if (items.length === 0) {
+        storyBars.innerHTML = '';
+        counterEl.innerText = '0 / 0';
+        stage.innerHTML = `
+          <div class="doomscroll-slide" style="padding:40px 20px;">
+            <div style="text-align:center; padding:60px 24px; background:var(--ground); border:1px dashed var(--border); border-radius:20px; max-width:480px; width:100%;">
+              <div style="font-size:42px; margin-bottom:12px;">🕵️‍♂️</div>
+              <div style="font-family:var(--mono); font-size:18px; font-weight:800; color:#ffffff; margin-bottom:6px;">No blunders matched filter</div>
+              <div style="font-family:var(--mono); font-size:13px; color:var(--text-muted);">Try selecting "All Models" or adjusting your search keyword.</div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // Render top story segments
+      storyBars.innerHTML = items.map((_, idx) => `
+        <div class="doomscroll-seg ${idx === currentSlideIndex ? 'active' : ''}" id="seg-${idx}"></div>
+      `).join('');
+      counterEl.innerText = `${Math.min(currentSlideIndex + 1, items.length)} / ${items.length}`;
+
+      // Render slides
+      stage.innerHTML = items.map((b, idx) => {
+        const hasVoted = userVotedIds.has(b.id);
+        const { costFmt, apologiesCount, xShareUrl } = getBlunderShareDetails(b);
+        const laughsCount = b.laughs_count || b.upvotes || 0;
+        const diffData = b.code_diff || b.code_snippet || b.fatal_line;
+        const damageSummary = b.damage_summary || b.damage || 'Anonymized trajectory damage.';
+        const tokenDisp = b.tokens_display || (b.tokens_burned ? `${(b.tokens_burned/1e9).toFixed(2)}B` : (b.tokens ? `${(b.tokens/1e9).toFixed(2)}B` : '1.0B'));
+        const incidentCode = b.incident_code || b.rule_id || b.id;
+        const barcodeNum = b.barcode_seed || incidentCode.replace(/\D/g, '') || '984210492817';
+
+        return `
+          <div class="doomscroll-slide" data-index="${idx}" data-id="${b.id}" id="slide-${b.id}">
+            <div class="doomscroll-card-halo"></div>
+            
+            <div class="doomscroll-card-wrapper">
+              <article class="receipt-card tall-receipt" id="card-${b.id}">
+                <div>
+                  <!-- RECEIPT HEADER -->
+                  <div class="receipt-header">
+                    <div class="receipt-org-stamp">★ STFUOPUS FORENSIC AUDIT ★</div>
+                    <div style="font-size:10px; color:var(--text-muted); letter-spacing:0.05em; text-transform:uppercase;">OFFICIAL BLUNDER RECEIPT</div>
+                    <div class="receipt-title">${escapeHtml(b.title)}</div>
+                    <div class="receipt-meta-line">
+                      <span>REF: ${escapeHtml(incidentCode)}</span>
+                      <span>DATE: ${escapeHtml(b.date || (b.created_at ? b.created_at.split('T')[0] : '2026-08-30'))}</span>
+                    </div>
+                  </div>
+
+                  <!-- BADGES ROW -->
+                  <div class="receipt-badge-row">
+                    <span class="badge ${getModelBadgeClass(b.model)}">${escapeHtml(b.model)}</span>
+                    <span class="badge badge-sev0">${escapeHtml(b.severity || 'SEV-0 CRITICAL')}</span>
+                    <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--silver); border:1px solid var(--border);">Destruction: ${b.destruction_score || 90}/100</span>
+                  </div>
+
+                  <!-- LEDGER STATS -->
+                  <div class="ledger-grid">
+                    <div class="ledger-item burn">
+                      <div class="l-val">${costFmt}</div>
+                      <div class="l-lbl">Dollar Burn</div>
+                    </div>
+                    <div class="ledger-item">
+                      <div class="l-val">${escapeHtml(tokenDisp)}</div>
+                      <div class="l-lbl">Tokens Burned</div>
+                    </div>
+                    <div class="ledger-item">
+                      <div class="l-val">${apologiesCount}</div>
+                      <div class="l-lbl">Grovels</div>
+                    </div>
+                  </div>
+
+                  <!-- FATAL ACTION / CODE DIFF -->
+                  <div class="diff-box">
+                    ${renderDiffHtml(diffData)}
+                  </div>
+
+                  <!-- APOLOGY QUOTE -->
+                  <div class="quote-box">
+                    "${escapeHtml(b.apology_quote || 'I apologize for the oversight.')}"
+                    <span class="quote-author">— ${escapeHtml(b.model)} (Post-Mortem)</span>
+                  </div>
+
+                  <!-- DAMAGE SUMMARY -->
+                  <div class="damage-box">
+                    <strong>Forensic Impact:</strong> ${escapeHtml(damageSummary)}
+                  </div>
+                </div>
+
+                <div>
+                  <!-- BARCODE -->
+                  <div class="barcode-section">
+                    ${renderBarcode(barcodeNum)}
+                    <div class="barcode-digits">${escapeHtml(incidentCode)}</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- FLOATING RIGHT-SIDE INTERACTION RAIL (TIKTOK / REELS STYLE) -->
+            <aside class="interaction-rail" aria-label="Quick Actions">
+              <!-- 1. LAUGH / UPVOTE -->
+              <div class="rail-item">
+                <button class="rail-btn laugh-rail-btn ${hasVoted ? 'voted' : ''}" onclick="voteBlunder('${b.id}', this)" title="Laugh at this blunder (Hotkey: L)">
+                  <span class="rail-emoji">😂</span>
+                </button>
+                <span class="rail-btn-label laugh-count">${laughsCount}</span>
+              </div>
+
+              <!-- 2. SHARE TO X -->
+              <div class="rail-item">
+                <a href="${xShareUrl}" target="_blank" rel="noopener" class="rail-btn" title="Share to X (Hotkey: S)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <span class="rail-btn-label">Share</span>
+              </div>
+
+              <!-- 3. COPY CODE DIFF -->
+              <div class="rail-item">
+                <button class="rail-btn" onclick="copyBlunderCode('${b.id}')" title="Copy Fatal Code Snippet (Hotkey: C)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </button>
+                <span class="rail-btn-label">Diff</span>
+              </div>
+
+              <!-- 4. COPY RECEIPT LINK -->
+              <div class="rail-item">
+                <button class="rail-btn" onclick="copyReceiptLink('${b.id}')" title="Copy Receipt Link">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                </button>
+                <span class="rail-btn-label">Link</span>
+              </div>
+
+              <!-- 5. NEXT SLIDE -->
+              <div class="rail-item">
+                <button class="rail-btn rail-btn-next" onclick="goToNextSlide()" title="Next Blunder (Hotkey: J / Down)">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <span class="rail-btn-label">Next</span>
+              </div>
+            </aside>
+          </div>
+        `;
+      }).join('');
+
+      initSlideObserver();
+    }
+
+    // ============================================================
+    // RENDER: GRID VIEW MODE
+    // ============================================================
+    function renderReceiptsGrid() {
       const grid = document.getElementById('receiptsGrid');
       const items = getFilteredAndSorted();
 
@@ -1137,18 +1833,13 @@
 
       grid.innerHTML = items.map(b => {
         const hasVoted = userVotedIds.has(b.id);
-        const costVal = b.cost_usd || b.spend_usd || 0;
-        const costFmt = "$" + costVal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
-        const apologiesCount = b.apologies_count || b.turns || 1;
+        const { costFmt, apologiesCount, shareUrl, xShareUrl } = getBlunderShareDetails(b);
         const laughsCount = b.laughs_count || b.upvotes || 0;
         const diffData = b.code_diff || b.code_snippet || b.fatal_line;
         const damageSummary = b.damage_summary || b.damage || 'Anonymized trajectory damage.';
         const tokenDisp = b.tokens_display || (b.tokens_burned ? `${(b.tokens_burned/1e9).toFixed(2)}B` : (b.tokens ? `${(b.tokens/1e9).toFixed(2)}B` : '1.0B'));
         const incidentCode = b.incident_code || b.rule_id || b.id;
         const barcodeNum = b.barcode_seed || incidentCode.replace(/\D/g, '') || '984210492817';
-        const shareUrl = `https://stfuopus.lol/blunders.html#${b.id}`;
-        const tweetText = `🚨 AI Blunder Receipt: ${b.title} (${b.model}) burned ${costFmt} in tokens and apologized ${apologiesCount} times: "${b.apology_quote}"\n\nFramed at stfuopus.lol/blunders: ${shareUrl}`;
-        const xShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
         const inShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
 
         return `
@@ -1184,7 +1875,7 @@
                 </div>
                 <div class="ledger-item">
                   <div class="l-val">${apologiesCount}</div>
-                  <div class="l-lbl">Grovels & Remorse</div>
+                  <div class="l-lbl">Grovels</div>
                 </div>
               </div>
 
@@ -1196,7 +1887,7 @@
               <!-- APOLOGY QUOTE -->
               <div class="quote-box">
                 "${escapeHtml(b.apology_quote || 'I apologize for the oversight.')}"
-                <span class="quote-author">— ${escapeHtml(b.model)} (Corporate Post-Mortem)</span>
+                <span class="quote-author">— ${escapeHtml(b.model)} (Post-Mortem)</span>
               </div>
 
               <!-- DAMAGE SUMMARY -->
@@ -1229,6 +1920,9 @@
                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                   </svg>
                 </a>
+                <button class="btn-icon" onclick="copyBlunderCode('${b.id}')" title="Copy Code Diff">
+                  📋 Diff
+                </button>
                 <button class="btn-icon" onclick="copyReceiptLink('${b.id}')" title="Copy Receipt Link">
                   🔗 Link
                 </button>
@@ -1239,6 +1933,95 @@
       }).join('');
     }
 
+    // ============================================================
+    // SNAP SCROLL & INTERSECTION OBSERVER
+    // ============================================================
+    function initSlideObserver() {
+      if (slideObserver) {
+        slideObserver.disconnect();
+      }
+
+      const stage = document.getElementById('doomscrollStage');
+      const slides = stage.querySelectorAll('.doomscroll-slide');
+      if (!slides.length) return;
+
+      slideObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = parseInt(entry.target.getAttribute('data-index'), 10);
+            if (!isNaN(idx)) {
+              currentSlideIndex = idx;
+              updateStorySegments(idx, slides.length);
+            }
+          }
+        });
+      }, {
+        root: stage,
+        threshold: 0.6
+      });
+
+      slides.forEach(slide => slideObserver.observe(slide));
+    }
+
+    function updateStorySegments(activeIdx, totalCount) {
+      document.querySelectorAll('.doomscroll-seg').forEach((seg, idx) => {
+        if (idx === activeIdx) {
+          seg.classList.add('active');
+        } else {
+          seg.classList.remove('active');
+        }
+      });
+      const counter = document.getElementById('doomscrollCounter');
+      if (counter) {
+        counter.innerText = `${activeIdx + 1} / ${totalCount}`;
+      }
+    }
+
+    function goToNextSlide() {
+      const items = getFilteredAndSorted();
+      if (!items.length) return;
+      const nextIdx = (currentSlideIndex + 1) % items.length;
+      scrollToSlideIndex(nextIdx);
+    }
+
+    function goToPrevSlide() {
+      const items = getFilteredAndSorted();
+      if (!items.length) return;
+      const prevIdx = (currentSlideIndex - 1 + items.length) % items.length;
+      scrollToSlideIndex(prevIdx);
+    }
+
+    function scrollToSlideIndex(idx) {
+      currentSlideIndex = idx;
+      const stage = document.getElementById('doomscrollStage');
+      const slides = stage.querySelectorAll('.doomscroll-slide');
+      if (slides[idx]) {
+        slides[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function scrollToBlunder(id) {
+      const items = getFilteredAndSorted();
+      const cleanId = id.toUpperCase().replace(/[^A-Z0-9-]/g, '');
+      const targetIdx = items.findIndex(b => 
+        (b.id && b.id.toUpperCase() === cleanId) ||
+        (b.incident_code && b.incident_code.toUpperCase() === cleanId) ||
+        (b.rule_id && b.rule_id.toUpperCase() === cleanId)
+      );
+
+      if (targetIdx !== -1) {
+        if (currentViewMode === 'doomscroll') {
+          scrollToSlideIndex(targetIdx);
+        } else {
+          const el = document.getElementById(items[targetIdx].id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+
+    // ============================================================
+    // INTERACTIVE ACTIONS: LAUGH, COPY, SHARE
+    // ============================================================
     async function voteBlunder(id, btn) {
       if (userVotedIds.has(id)) {
         showToast("You already laughed at this blunder!");
@@ -1250,13 +2033,24 @@
 
       const target = blundersList.find(b => b.id === id);
       if (target) {
-        target.laughs_count = (target.laughs_count || 0) + 1;
+        target.laughs_count = (target.laughs_count || target.upvotes || 0) + 1;
+        target.upvotes = target.laughs_count;
       }
-      
+
+      // Update UI buttons across both views
+      document.querySelectorAll(`[onclick*="'${id}'"]`).forEach(el => {
+        if (el.classList.contains('rail-btn') || el.classList.contains('btn-laugh')) {
+          el.classList.add('voted');
+          const countLabel = el.parentElement.querySelector('.laugh-count') || el.querySelector('.laugh-count');
+          if (countLabel && target) {
+            countLabel.innerText = target.laughs_count;
+          }
+        }
+      });
+
+      // Spawn Particle Burst Effect
       if (btn) {
-        btn.classList.add('voted');
-        const countSpan = btn.querySelector('.laugh-count');
-        if (countSpan && target) countSpan.innerText = target.laughs_count;
+        createParticleBurst(btn);
       }
 
       updateCounts();
@@ -1274,10 +2068,39 @@
       }
     }
 
+    function createParticleBurst(anchorEl) {
+      const rect = anchorEl.getBoundingClientRect();
+      const emojis = ['😂', '🔥', '💀', '🙏', '💸'];
+      for (let i = 0; i < 5; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle-float';
+        particle.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        particle.style.left = `${rect.left + rect.width / 2 + (Math.random() * 20 - 10)}px`;
+        particle.style.top = `${rect.top + (Math.random() * 10 - 5)}px`;
+        particle.style.setProperty('--dx', `${(Math.random() - 0.5) * 80}px`);
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 1000);
+      }
+    }
+
+    function copyBlunderCode(id) {
+      const blunder = blundersList.find(b => b.id === id);
+      if (!blunder) return;
+      let text = '';
+      if (Array.isArray(blunder.code_diff)) {
+        text = blunder.code_diff.map(d => d.text).join('\n');
+      } else {
+        text = blunder.code_snippet || blunder.fatal_line || blunder.code_diff || '';
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("📋 Fatal code snippet copied!");
+      });
+    }
+
     function copyReceiptLink(id) {
       const url = `${window.location.origin}/blunders.html#${id}`;
       navigator.clipboard.writeText(url).then(() => {
-        showToast("Receipt link copied to clipboard!");
+        showToast("🔗 Receipt link copied to clipboard!");
       });
     }
 
@@ -1298,6 +2121,59 @@
       toast.innerText = msg;
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // ============================================================
+    // KEYBOARD SHORTCUTS ENGINE
+    // ============================================================
+    function setupKeyboardShortcuts() {
+      window.addEventListener('keydown', (e) => {
+        // Ignore if user is currently typing in an input, textarea, or select
+        const targetTag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (targetTag === 'input' || targetTag === 'textarea' || targetTag === 'select' || (e.target && e.target.isContentEditable)) {
+          return;
+        }
+
+        const items = getFilteredAndSorted();
+        if (!items.length) return;
+
+        const currentBlunder = items[currentSlideIndex] || items[0];
+
+        // Navigate Down: DownArrow / J / Space
+        if (e.key === 'ArrowDown' || e.key === 'j' || e.key === 'J' || (e.key === ' ' && currentViewMode === 'doomscroll')) {
+          e.preventDefault();
+          goToNextSlide();
+        }
+        // Navigate Up: UpArrow / K
+        else if (e.key === 'ArrowUp' || e.key === 'k' || e.key === 'K') {
+          e.preventDefault();
+          goToPrevSlide();
+        }
+        // Laugh: L
+        else if (e.key === 'l' || e.key === 'L') {
+          e.preventDefault();
+          if (currentBlunder) {
+            const slideEl = document.getElementById(`slide-${currentBlunder.id}`);
+            const btn = slideEl ? slideEl.querySelector('.laugh-rail-btn') : null;
+            voteBlunder(currentBlunder.id, btn);
+          }
+        }
+        // Share to X: S
+        else if (e.key === 's' || e.key === 'S') {
+          e.preventDefault();
+          if (currentBlunder) {
+            const { xShareUrl } = getBlunderShareDetails(currentBlunder);
+            window.open(xShareUrl, '_blank', 'noopener,noreferrer');
+          }
+        }
+        // Copy Code Diff: C
+        else if (e.key === 'c' || e.key === 'C') {
+          e.preventDefault();
+          if (currentBlunder) {
+            copyBlunderCode(currentBlunder.id);
+          }
+        }
+      });
     }
 
     // Register WebMCP browser tools if supported
@@ -1321,11 +2197,11 @@
                 id: b.id,
                 title: b.title,
                 model: b.model,
-                cost_usd: b.cost_usd,
-                apologies: b.apologies_count,
+                cost_usd: b.cost_usd || b.spend_usd,
+                apologies: b.apologies_count || b.turns,
                 apology_quote: b.apology_quote,
                 fatal_line: b.fatal_line,
-                laughs: b.laughs_count
+                laughs: b.laughs_count || b.upvotes
               }))
             };
           }
@@ -1337,7 +2213,7 @@
           inputSchema: {
             type: 'object',
             properties: {
-              blunder_id: { type: 'string', description: 'ID of the blunder to laugh at (e.g. blunder-01-katana)' }
+              blunder_id: { type: 'string', description: 'ID of the blunder to laugh at (e.g. BLUNDER-KATANA-01)' }
             },
             required: ['blunder_id']
           },
@@ -1351,7 +2227,10 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', loadBlunders);
+    document.addEventListener('DOMContentLoaded', () => {
+      loadBlunders();
+      setupKeyboardShortcuts();
+    });
   </script>
 </body>
 </html>

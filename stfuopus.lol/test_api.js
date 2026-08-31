@@ -1,8 +1,8 @@
 const assert = require('assert');
-const storage = require('../api/_storage');
-const listHandler = require('../api/blunders/index');
-const submitHandler = require('../api/blunders/submit');
-const voteHandler = require('../api/blunders/vote');
+const storage = require('./api/_storage');
+const listHandler = require('./api/blunders/index');
+const submitHandler = require('./api/blunders/submit');
+const voteHandler = require('./api/blunders/vote');
 
 async function runTests() {
   console.log('Testing Hall of Blunders API handlers...');
@@ -70,6 +70,10 @@ async function runTests() {
   assert(voteRes.body.success);
   assert.strictEqual(voteRes.body.upvotes, 2);
   console.log(`✓ POST /api/blunders/vote incremented upvotes to ${voteRes.body.upvotes}`);
+
+  // Clean up: Reset to 5 seeded exhibits
+  storage.saveBlunders(storage.SEEDED_EXHIBITS);
+  console.log('✓ Reset store to default 5 exhibits');
 
   console.log('All API tests passed cleanly!');
 }
