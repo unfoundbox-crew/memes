@@ -6,8 +6,14 @@
 stfuopus.lol is an open-source, local-first developer utility and satirical benchmark created by Unfoundbox Crew.
 It quantifies token waste, latency attribution, and model groveling across AI coding assistants.
 
+## Pages & Exhibits
+- `https://stfuopus.lol/` : Apology Tax Calculator & XKCD Comic
+- `https://stfuopus.lol/blunders.html` : The Hall of Blunders (Hall of Shame) — Framed receipts of real $5,000+ AI coding mistakes
+
 ## WebMCP Tools (navigator.modelContext)
 This site exposes in-browser WebMCP tools via the Web Model Context Protocol standard:
+- `browse_hall_of_blunders`: Browse catastrophic AI coding blunders, dollar burns, and corporate apologies
+- `laugh_at_blunder`: Upvote / laugh at a specific blunder exhibit in the Hall of Blunders
 - `grovel_calculator`: Executable in-browser via `navigator.modelContext.executeTool("grovel_calculator")`
 - `agentworth_local_audit`: Executable in-browser via `navigator.modelContext.executeTool("agentworth_local_audit")`
 
