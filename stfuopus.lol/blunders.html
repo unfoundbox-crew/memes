@@ -127,31 +127,59 @@
 
     .container {
       width: 100%;
-      max-width: 1120px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: clamp(20px, 3.5vw, 40px) clamp(14px, 2.5vw, 24px) 120px;
+      padding: clamp(20px, 3vw, 36px) clamp(16px, 2.5vw, 24px) 120px;
     }
 
-    /* HERO HEADER */
-    .hero {
-      text-align: center;
-      margin-bottom: clamp(28px, 4vw, 40px);
+    /* ============================================================
+       SIDE-BY-SIDE HERO FIRST VIEW (DESKTOP SPLIT / MOBILE STACK)
+       ============================================================ */
+    .hero-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(24px, 3.5vw, 40px);
+      align-items: stretch;
+      margin-bottom: clamp(32px, 4vw, 48px);
     }
+
+    @media (max-width: 1024px) {
+      .hero-split-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .hero-command-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-command-panel {
+        text-align: center;
+        align-items: center;
+      }
+    }
+
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 18px;
+      padding: 6px 16px;
       border-radius: 9999px;
       background: rgba(201, 162, 39, 0.08);
       border: 1px solid rgba(201, 162, 39, 0.3);
       color: var(--gold-spine);
       font-family: var(--mono);
-      font-size: clamp(11.5px, 2.2vw, 13px);
+      font-size: clamp(11px, 2vw, 12.5px);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       text-decoration: none;
       transition: all 0.2s ease;
+      width: fit-content;
     }
     .pill:hover {
       border-color: var(--gold);
@@ -160,23 +188,33 @@
     }
 
     h1 {
-      font-size: clamp(22px, 5.2vw, 54px);
+      font-size: clamp(26px, 4vw, 48px);
       font-weight: 900;
       letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin: 0 0 14px;
+      line-height: 1.12;
+      margin: 0 0 8px;
       color: #ffffff;
       word-break: break-word;
       text-transform: uppercase;
     }
 
+    .hero-tagline-sub {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
     .hero-sub {
-      font-size: clamp(15px, 2.8vw, 19px);
+      font-size: clamp(14.5px, 2vw, 17px);
       color: var(--silver);
-      max-width: 780px;
-      margin: 0 auto 22px;
+      margin: 0 0 20px;
       line-height: 1.5;
       font-style: italic;
+      max-width: 540px;
     }
 
     /* TERMINAL QUICKSTART BAR */
@@ -184,31 +222,51 @@
       display: inline-flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 100%;
+      width: 100%;
+      max-width: 520px;
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 10px 16px;
+      padding: 10px 14px;
       font-family: var(--mono);
-      font-size: clamp(12px, 2.2vw, 14px);
+      font-size: clamp(12px, 2vw, 13.5px);
       color: var(--text);
-      gap: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      margin-bottom: 20px;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+      margin-bottom: 8px;
     }
-    .terminal-bar code {
+    .term-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       overflow-x: auto;
       white-space: nowrap;
+    }
+    .prompt-sym {
+      color: var(--gold);
+      font-weight: 900;
+    }
+    .terminal-bar code {
       color: #ffffff;
       font-weight: 700;
+      white-space: nowrap;
     }
+    .term-subtext {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 520px;
+      line-height: 1.4;
+    }
+
     .copy-btn {
       background: #18181c;
       border: 1px solid var(--border);
       color: var(--text);
       border-radius: 8px;
-      padding: 6px 14px;
-      font-size: 12px;
+      padding: 6px 12px;
+      font-size: 11.5px;
       font-family: var(--mono);
       font-weight: 700;
       cursor: pointer;
@@ -222,69 +280,77 @@
       color: #ffffff;
     }
 
-    /* STATS STRIP */
-    .stats-strip {
+    /* STATS STRIP (COMPACT HERO EMBED) */
+    .stats-compact {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-      margin-bottom: 28px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 520px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    @media (min-width: 560px) and (max-width: 1024px) {
+      .stats-compact {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
     .stat-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       text-align: center;
     }
     .stat-val {
       font-family: var(--mono);
-      font-size: clamp(17px, 2.8vw, 22px);
+      font-size: clamp(16px, 2.2vw, 20px);
       font-weight: 900;
       color: var(--gold);
+      line-height: 1.2;
     }
     .stat-lbl {
       font-family: var(--mono);
-      font-size: 10.5px;
+      font-size: 10px;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
-    /* VIEW SWITCHER BAR */
-    .view-mode-bar {
+    /* HERO VIEW SWITCHER ROW */
+    .hero-view-switch-box {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      background: var(--ground);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 12px 16px;
-      margin-bottom: 24px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      gap: 12px;
+      max-width: 520px;
+      width: 100%;
+    }
+    @media (max-width: 1024px) {
+      .hero-view-switch-box {
+        justify-content: center;
+      }
     }
     .view-switcher {
       display: inline-flex;
       align-items: center;
       background: #0d0d12;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 4px;
+      padding: 3px;
       gap: 4px;
     }
     .view-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       background: transparent;
       border: 1px solid transparent;
       color: var(--text-muted);
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 9px;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -298,36 +364,44 @@
       background: var(--card-bg);
       color: var(--gold-spine);
       border-color: rgba(201, 162, 39, 0.4);
-      box-shadow: 0 0 16px rgba(201, 162, 39, 0.2);
+      box-shadow: 0 0 14px rgba(201, 162, 39, 0.2);
     }
     .view-badge-hot {
-      font-size: 9.5px;
+      font-size: 9px;
       background: var(--accent);
       color: #ffffff;
       font-weight: 900;
-      padding: 2px 6px;
+      padding: 2px 5px;
       border-radius: 4px;
       letter-spacing: 0.05em;
     }
     .view-hint {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--silver);
     }
     .live-indicator-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 10px var(--green);
+      box-shadow: 0 0 8px var(--green);
       animation: pulseGlow 1.8s infinite;
     }
     @keyframes pulseGlow {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.3); opacity: 0.7; }
+    }
+
+    /* RIGHT COLUMN: HERO DOOMSCROLL PANEL */
+    .hero-doomscroll-panel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     /* CONTROLS BAR: FILTERS + SORT */
@@ -423,13 +497,12 @@
     .doomscroll-viewport {
       position: relative;
       width: 100%;
-      height: clamp(600px, 86vh, 880px);
+      height: clamp(560px, 74vh, 670px);
       background: radial-gradient(circle at 50% 30%, #15151c 0%, #060608 65%, #000000 100%);
-      border: 1.5px solid rgba(201, 162, 39, 0.25);
+      border: 1.5px solid rgba(201, 162, 39, 0.3);
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), inset 0 0 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(201, 162, 39, 0.08);
-      margin-bottom: 40px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), inset 0 0 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(201, 162, 39, 0.08);
     }
 
     /* Top story progress segments */
@@ -1057,73 +1130,109 @@
 
   <div class="container">
 
-    <!-- HERO HEADER -->
-    <div class="hero">
-      <a href="https://agentworth.dev" class="pill">
-        <span>🏆 THE FORENSIC ARCHAEOLOGY OF AI FAILURE</span>
-        <span>→</span>
-      </a>
-      <h1>THE HALL OF BLUNDERS</h1>
-      <div style="font-family:var(--mono); color:var(--accent); font-weight:800; font-size:14px; letter-spacing:0.1em; margin-bottom:12px;">(HALL OF SHAME)</div>
-      <p class="hero-sub">
-        "Why hide your agent's $5,000 mistakes when you can frame the receipt?"
-      </p>
+    <!-- ============================================================
+         HERO SPLIT VIEWPORT (FIRST VIEW SIDE-BY-SIDE ON DESKTOP)
+         ============================================================ -->
+    <div class="hero-split-grid" id="heroSplitGrid">
 
-      <!-- TERMINAL SUBMISSION QUICKSTART -->
-      <div class="terminal-bar">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span style="color:var(--gold); font-weight:900;">$</span>
-          <code id="cmdText">agwt blunder --submit</code>
+      <!-- LEFT COLUMN: COMMAND & TELEMETRY PANEL -->
+      <div class="hero-command-panel">
+        <a href="https://agentworth.dev" class="pill">
+          <span>🏆 THE FORENSIC ARCHAEOLOGY OF AI FAILURE</span>
+          <span>→</span>
+        </a>
+        <h1>THE HALL OF BLUNDERS</h1>
+        <div class="hero-tagline-sub">(HALL OF SHAME)</div>
+        <p class="hero-sub">
+          "Why hide your agent's $5,000 mistakes when you can frame the receipt?"
+        </p>
+
+        <!-- TERMINAL SUBMISSION QUICKSTART -->
+        <div class="terminal-bar">
+          <div class="term-left">
+            <span class="prompt-sym">$</span>
+            <code id="cmdText">agwt blunder --submit</code>
+          </div>
+          <button class="copy-btn" onclick="copySubmitCmd()">Copy</button>
         </div>
-        <button class="copy-btn" onclick="copySubmitCmd()">Copy Command</button>
+        <div class="term-subtext">
+          Scans local SQLite trace history, scrubs private paths/keys &amp; frames the receipt.
+        </div>
+
+        <!-- STATS STRIP -->
+        <div class="stats-compact">
+          <div class="stat-card">
+            <div class="stat-val" id="statTotalCost">$18,595</div>
+            <div class="stat-lbl">Token Waste</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statTotalTokens">11.67B</div>
+            <div class="stat-lbl">Context Burned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statTotalGrovels">287</div>
+            <div class="stat-lbl">Grovels</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statTotalLaughs">3,383</div>
+            <div class="stat-lbl">Laughs</div>
+          </div>
+        </div>
+
+        <!-- VIEW SWITCHER BUTTONS -->
+        <div class="hero-view-switch-box">
+          <div class="view-switcher" role="tablist" aria-label="View Mode Switcher">
+            <button id="viewBtnDoomscroll" class="view-btn active" role="tab" aria-selected="true" onclick="switchViewMode('doomscroll')">
+              <span>📱</span>
+              <span>TikTok Doomscroll</span>
+              <span class="view-badge-hot">LIVE</span>
+            </button>
+            <button id="viewBtnGrid" class="view-btn" role="tab" aria-selected="false" onclick="switchViewMode('grid')">
+              <span>🧾</span>
+              <span>Grid Gallery</span>
+            </button>
+          </div>
+
+          <div class="view-hint" id="viewModeHint">
+            <span class="live-indicator-dot"></span>
+            <span id="viewModeHintText"><span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> flip • <span class="hud-kbd">L</span> laugh</span>
+          </div>
+        </div>
       </div>
-      <div style="font-family:var(--mono); font-size:12px; color:var(--text-muted);">
-        Scans your local SQLite trace history, scrubs private paths/keys, and frames the receipt.
+
+      <!-- RIGHT COLUMN: LIVE DOOMSCROLL RECEIPT STAGE -->
+      <div class="hero-doomscroll-panel" id="heroDoomscrollPanel">
+        <div class="doomscroll-viewport" id="doomscrollContainer">
+          <!-- Story Segments & Counter -->
+          <div class="doomscroll-top-bar">
+            <div class="doomscroll-story-bars" id="doomscrollStoryBars"></div>
+            <div class="doomscroll-counter" id="doomscrollCounter">1 / 5</div>
+          </div>
+
+          <!-- Snap Scroll Stage -->
+          <div class="doomscroll-stage" id="doomscrollStage">
+            <!-- Injected via JavaScript -->
+          </div>
+
+          <!-- Keyboard Shortcut HUD Pill in Corner -->
+          <div class="shortcut-hud" id="shortcutHud">
+            <span><span class="hud-kbd">J</span>/<span class="hud-kbd">K</span> Navigate</span>
+            <span class="hud-sep">•</span>
+            <span><span class="hud-kbd">L</span> Laugh</span>
+            <span class="hud-sep">•</span>
+            <span><span class="hud-kbd">S</span> Share</span>
+            <span class="hud-sep">•</span>
+            <span><span class="hud-kbd">C</span> Diff</span>
+          </div>
+        </div>
       </div>
+
     </div>
 
-    <!-- STATS STRIP -->
-    <div class="stats-strip">
-      <div class="stat-card">
-        <div class="stat-val" id="statTotalCost">$18,595</div>
-        <div class="stat-lbl">Direct Token Waste</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-val" id="statTotalTokens">11.67B</div>
-        <div class="stat-lbl">Cached Context Burned</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-val" id="statTotalGrovels">287</div>
-        <div class="stat-lbl">Grovels & Apologies</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-val" id="statTotalLaughs">3,383</div>
-        <div class="stat-lbl">Community Laughs</div>
-      </div>
-    </div>
-
-    <!-- PROMINENT VIEW SWITCHER BAR -->
-    <div class="view-mode-bar">
-      <div class="view-switcher" role="tablist" aria-label="View Mode Switcher">
-        <button id="viewBtnDoomscroll" class="view-btn active" role="tab" aria-selected="true" onclick="switchViewMode('doomscroll')">
-          <span>📱</span>
-          <span>TikTok Doomscroll</span>
-          <span class="view-badge-hot">HOT</span>
-        </button>
-        <button id="viewBtnGrid" class="view-btn" role="tab" aria-selected="false" onclick="switchViewMode('grid')">
-          <span>🧾</span>
-          <span>Grid View</span>
-        </button>
-      </div>
-
-      <div class="view-hint" id="viewModeHint">
-        <span class="live-indicator-dot"></span>
-        <span id="viewModeHintText">Snap Scroll Active • <span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> to flip</span>
-      </div>
-    </div>
-
-    <!-- CONTROLS PANEL: FILTERS & SORT -->
-    <div class="controls-panel">
+    <!-- ============================================================
+         CONTROLS PANEL: FILTERS & SORT
+         ============================================================ -->
+    <div class="controls-panel" id="controlsPanel">
       <div class="controls-top">
         <div class="filter-tabs" id="modelFilterTabs">
           <button class="filter-pill active" onclick="filterByModel('all', this)">All Models (<span id="count-all">5</span>)</button>
@@ -1144,31 +1253,6 @@
             <option value="votes">😂 Most Laughs</option>
           </select>
         </div>
-      </div>
-    </div>
-
-    <!-- TIKTOK DOOMSCROLL VIEWPORT -->
-    <div class="doomscroll-viewport" id="doomscrollContainer">
-      <!-- Story Segments & Counter -->
-      <div class="doomscroll-top-bar">
-        <div class="doomscroll-story-bars" id="doomscrollStoryBars"></div>
-        <div class="doomscroll-counter" id="doomscrollCounter">1 / 5</div>
-      </div>
-
-      <!-- Snap Scroll Stage -->
-      <div class="doomscroll-stage" id="doomscrollStage">
-        <!-- Injected via JavaScript -->
-      </div>
-
-      <!-- Keyboard Shortcut HUD Pill in Corner -->
-      <div class="shortcut-hud" id="shortcutHud">
-        <span><span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> Navigate</span>
-        <span class="hud-sep">•</span>
-        <span><span class="hud-kbd">L</span> Laugh</span>
-        <span class="hud-sep">•</span>
-        <span><span class="hud-kbd">S</span> Share</span>
-        <span class="hud-sep">•</span>
-        <span><span class="hud-kbd">C</span> Copy Diff</span>
       </div>
     </div>
 
@@ -1482,30 +1566,36 @@
 
     function switchViewMode(mode) {
       currentViewMode = mode;
+      const doomscrollPanel = document.getElementById('heroDoomscrollPanel');
       const doomscrollEl = document.getElementById('doomscrollContainer');
       const gridEl = document.getElementById('receiptsGrid');
       const btnDoomscroll = document.getElementById('viewBtnDoomscroll');
       const btnGrid = document.getElementById('viewBtnGrid');
       const hintText = document.getElementById('viewModeHintText');
+      const heroGrid = document.getElementById('heroSplitGrid');
 
       if (mode === 'doomscroll') {
-        doomscrollEl.style.display = 'block';
-        gridEl.style.display = 'none';
+        if (doomscrollPanel) doomscrollPanel.style.display = 'flex';
+        if (doomscrollEl) doomscrollEl.style.display = 'block';
+        if (gridEl) gridEl.style.display = 'none';
+        if (heroGrid) heroGrid.style.gridTemplateColumns = '';
         btnDoomscroll.classList.add('active');
         btnDoomscroll.setAttribute('aria-selected', 'true');
         btnGrid.classList.remove('active');
         btnGrid.setAttribute('aria-selected', 'false');
-        if (hintText) hintText.innerHTML = 'Snap Scroll Active • <span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> to flip';
+        if (hintText) hintText.innerHTML = '<span class="hud-kbd">J</span> / <span class="hud-kbd">K</span> flip • <span class="hud-kbd">L</span> laugh';
         renderDoomscroll();
       } else {
-        doomscrollEl.style.display = 'none';
-        gridEl.style.display = 'grid';
+        if (doomscrollPanel) doomscrollPanel.style.display = 'none';
+        if (gridEl) gridEl.style.display = 'grid';
+        if (heroGrid) heroGrid.style.gridTemplateColumns = '1fr';
         btnDoomscroll.classList.remove('active');
         btnDoomscroll.setAttribute('aria-selected', 'false');
         btnGrid.classList.add('active');
         btnGrid.setAttribute('aria-selected', 'true');
         if (hintText) hintText.innerHTML = 'Grid Gallery Active • 2-Column forensic slips';
         renderReceiptsGrid();
+        gridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
