@@ -417,6 +417,6 @@
     }
   });
 
-  console.log('%c[WebMCP Bridge] 4 WebMCP tools active on navigator.modelContext & document.modelContext (including Chrome Prompt API)', 'color: #10b981; font-weight: bold;');
+  console.log('%c[WebMCP Bridge] 4 WebMCP tools active on navigator.modelContext (including Chrome Prompt API)', 'color: #10b981; font-weight: bold;');
 
 })(typeof window !== 'undefined' ? window : globalThis);
